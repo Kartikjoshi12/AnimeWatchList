@@ -1,5 +1,5 @@
 import HeroSection from "../components/HeroSection";
- import Trending from "../components/trending";
+ import Trending from "../components/Trending";
  import Recommendation from "../components/Recommendation";
 function Home() {
   return (
