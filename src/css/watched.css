@@ -24,9 +24,19 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
+
 }
 
 /* Tablet */
+
+@media (max-width:600px) {
+  .card-grid{
+     display: grid;
+  justify-content: center; /* Center the grid items horizontally */
+  align-items: center; 
+    margin: 0 auto;
+  }
+}
 @media (min-width: 600px) {
   .card-grid {
     grid-template-columns: repeat(2, 1fr);
