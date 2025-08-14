@@ -35,3 +35,12 @@ body {
   background-attachment: fixed; /* Makes it stay fixed on scroll */
   background-repeat: no-repeat;
 }
+/* global.css or app.css */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari */
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

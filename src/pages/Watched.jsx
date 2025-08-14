@@ -63,7 +63,7 @@ function Watched() {
 
   return (
     <div className="watched-page">
-      <h1 className="watched-title">My Anime List</h1>
+      <h1 className="heading">My Anime List</h1>
       <div className="card-grid">
         {CardData.map((anime) => (
           <Card
