@@ -1,5 +1,4 @@
 /* Watched.css */
-
 .watched-page {
   padding: 20px;
   background-color: #0d1117;
@@ -29,7 +28,7 @@
 
 /* Tablet */
 
-@media (max-width:600px) {
+@media (min-width:200px) {
   .card-grid{
      display: grid;
   justify-content: center; /* Center the grid items horizontally */

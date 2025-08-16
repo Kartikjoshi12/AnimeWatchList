@@ -1,0 +1,18 @@
+.search-input{
+    border-radius: 5px;
+    border: none;
+opacity: 0.7;
+
+}
+
+.logo-img-fav{
+    height: 30px;
+    border-radius: 100%;
+}
+.logo-img-fav:hover{
+  box-shadow: 0 0 15px #afa6af,   /* inner soft glow */
+              0 0 30px #afa6af,   /* medium outer glow */
+              0 0 50px #afa6af;   /* large outer glow */
+
+  transition: box-shadow 0.3s ease;
+}
