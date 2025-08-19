@@ -17,9 +17,9 @@ function Home() {
   return (
     <>
       <HeroSection />
-      <Recommendation />
       <Trending data={topAnime} />
       <HiddenGemes data={topAnime} />
+      <Recommendation />
     </>
   );
 }

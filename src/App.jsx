@@ -7,7 +7,7 @@ import Admin from "./pages/Admin";
 import Home from "./pages/Home";
 import Watched from "./pages/Watched";
 import Navbar from "./components/Navbar";
-
+import SearchPg from "./components/SearchPg";
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/Watched" element={<Watched />} />{" "}
             <Route path="/Admin" element={<Admin />} />
+            <Route path ="/search/:query" element={<SearchPg/>}/>
           </Routes>
            </div>
       </div>
