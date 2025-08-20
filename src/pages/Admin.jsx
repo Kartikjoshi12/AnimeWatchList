@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import "../css/admin.css";
 
 function Admin() {
-  const [query, setQuery] = useState(""); 
+  const [query, setQuery] = useState("");
   const [animeResult, setAnimeResult] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [watched, setWatched] = useState([]);
+  // const [watched, setWatched] = useState([]);
+const [watched, setWatched] = useState(() => {
+  return JSON.parse(localStorage.getItem("watched")) || [];
+});
+  useEffect(() => {
+    const stored = JSON.parse(localStorage.getItem("watched")) || [];
+    setWatched(stored);
+  }, []);
 
   const handelAnimeSubmit = async (e) => {
     e.preventDefault();
@@ -23,24 +30,28 @@ function Admin() {
     }
   };
 
-const handeladd = (anime) => {
-  setWatched((prev) => {
-    if (prev.some(item => item.mal_id === anime.mal_id)) {
-      return prev; // don’t add duplicates
-    }
-    const updated = [...prev, anime];
-    localStorage.setItem("watched", JSON.stringify(updated)); // save to cupboard
-    return updated;
-  });
-};
+  const handeladd = (anime) => {
+    const formatted = {
+      id: anime.mal_id,
+      Title: anime.title,
+      Image: anime.images.jpg.image_url,
+      Genre: anime.genres?.[0]?.name || "Unknown",
+      Rating: anime.score ? `${anime.score}⭐` : "N/A",
+    };
 
+    setWatched((prev) => {
+      if (prev.some((item) => item.id === formatted.id)) return prev;
+      const updated = [...prev, formatted];
+      localStorage.setItem("watched", JSON.stringify(updated));
+      return updated;
+    });
+  };
 
   const handeldel = (anime) => {
-   const storedList = JSON.parse(localStorage.getItem("watched"))|| [];
-
-   const updatedList = storedList.filter((id)=>id.id!== anime);
-   
-   localStorage.setItem("watched", JSON.stringify(updatedList))
+    const storedList = JSON.parse(localStorage.getItem("watched")) || [];
+    const updated = storedList.filter((item) => item.id !== anime.mal_id);
+    localStorage.setItem("watched", JSON.stringify(updated));
+    setWatched(updated); // update UI too
   };
 
   return (
@@ -73,10 +84,20 @@ const handeladd = (anime) => {
                     alt={anime.title}
                     width="120"
                   />
-                  <button className="btn" onClick={()=>{handeladd(anime)}}>
+                  <button
+                    className="btn"
+                    onClick={() => {
+                      handeladd(anime);
+                    }}
+                  >
                     Add
                   </button>
-                  <button className="btn" onClick={()=>{handeldel(anime)}}>
+                  <button
+                    className="btn"
+                    onClick={() => {
+                      handeldel(anime);
+                    }}
+                  >
                     Delete
                   </button>
                 </div>
