@@ -1,6 +1,6 @@
 import { useState , useEffect} from "react";
 import "../css/admin.css";
-
+import Watched from "../pages/Watched";
 function Admin() {
   const [query, setQuery] = useState("");
   const [animeResult, setAnimeResult] = useState([]);
@@ -27,6 +27,7 @@ const [watched, setWatched] = useState(() => {
       console.error(error);
     } finally {
       setLoading(false);
+      setQuery("")
     }
   };
 
@@ -38,13 +39,13 @@ const [watched, setWatched] = useState(() => {
       Genre: anime.genres?.[0]?.name || "Unknown",
       Rating: anime.score ? `${anime.score}⭐` : "N/A",
     };
-
     setWatched((prev) => {
       if (prev.some((item) => item.id === formatted.id)) return prev;
       const updated = [...prev, formatted];
       localStorage.setItem("watched", JSON.stringify(updated));
       return updated;
     });
+    alert("added  anime")
   };
 
   const handeldel = (anime) => {
@@ -106,6 +107,7 @@ const [watched, setWatched] = useState(() => {
           )}
         </div>
       </div>
+      <Watched/>
     </>
   );
 }
