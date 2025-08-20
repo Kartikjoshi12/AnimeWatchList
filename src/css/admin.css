@@ -1,0 +1,38 @@
+.searchbar{
+justify-items: center;
+margin-top: 20px;
+}
+
+
+.content-search {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* responsive grid */
+  gap: 15px; /* spacing between cards */
+  padding: 20px;
+}
+/* Each card */
+.content-search > div {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+/* Hover effect */
+.content-search > div:hover {
+  transform: translateY(-5px);
+}
+
+/* Buttons (yours already good, just add spacing reset) */
+.btn {
+  border: 1px solid #333; 
+  background-color: white; 
+  border-radius: 5px;  
+  margin: 5px;
+  min-width: 60px;
+  padding: 5px 10px;
+}
+

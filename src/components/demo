@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../css/admin.css";
 
 function Admin() {
-  const [query, setQuery] = useState(""); 
+  const [query, setQuery] = useState(""); // <-- should be string
   const [animeResult, setAnimeResult] = useState([]);
   const [loading, setLoading] = useState(false);
   const [watched, setWatched] = useState([]);
@@ -23,24 +23,12 @@ function Admin() {
     }
   };
 
-const handeladd = (anime) => {
-  setWatched((prev) => {
-    if (prev.some(item => item.mal_id === anime.mal_id)) {
-      return prev; // don’t add duplicates
-    }
-    const updated = [...prev, anime];
-    localStorage.setItem("watched", JSON.stringify(updated)); // save to cupboard
-    return updated;
-  });
-};
+  const handeladd = () => {
+    console.log("anime added to watched");
+  };
 
-
-  const handeldel = (anime) => {
-   const storedList = JSON.parse(localStorage.getItem("watched"))|| [];
-
-   const updatedList = storedList.filter((id)=>id.id!== anime);
-   
-   localStorage.setItem("watched", JSON.stringify(updatedList))
+  const handeldel = () => {
+    console.log("anime deleted");
   };
 
   return (
@@ -52,10 +40,11 @@ const handeladd = (anime) => {
             <input
               type="text"
               className="search-input"
-              placeholder="Search Admin"
+              placeholder="Search anime"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
+            <button type="submit">Search</button>
           </form>
         </div>
 
@@ -66,19 +55,15 @@ const handeladd = (anime) => {
           ) : (
             <div className="content-search">
               {animeResult.map((anime) => (
-                <div className="" key={anime.mal_id}>
+                <div key={anime.mal_id}>
                   <h3>{anime.title}</h3>
                   <img
                     src={anime.images.jpg.image_url}
                     alt={anime.title}
                     width="120"
                   />
-                  <button className="btn" onClick={()=>{handeladd(anime)}}>
-                    Add
-                  </button>
-                  <button className="btn" onClick={()=>{handeldel(anime)}}>
-                    Delete
-                  </button>
+                  <button onClick={handeladd}>Add</button>
+                  <button onClick={handeldel}>Delete</button>
                 </div>
               ))}
             </div>
