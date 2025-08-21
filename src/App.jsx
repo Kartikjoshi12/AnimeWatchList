@@ -3,12 +3,12 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
 
-import Admin from "./pages/Admin.jsx";
-import Home from "./pages/Home.jsx";
-import Watched from "./pages/Watched.jsx";
-import Navbar from "./components/Navbar.jsx";
-import SearchPg from "./pages/SearchPg.jsx";
-import Detail from "./pages/Detail.jsx";
+import Admin from "./pages/Admin";
+import Home from "./pages/Home";
+import Watched from "./pages/Watched";
+import Navbar from "./components/Navbar";
+import SearchPg from "./pages/SearchPg";
+import Detail from "./pages/Detail";
 function App() {
   return (
     <>

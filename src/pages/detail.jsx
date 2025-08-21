@@ -72,4 +72,4 @@ function Detail() {
   );
 }
 
-export default Detail;
+export default Detail ;
