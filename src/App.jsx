@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import Watched from "./pages/Watched";
 import Navbar from "./components/Navbar";
 import SearchPg from "./pages/SearchPg";
-import Detail from "./pages/Detail";
+import Detail from "../src/pages/Detail";
 function App() {
   return (
     <>
