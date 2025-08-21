@@ -35,6 +35,7 @@ function SearchPg() {
         {searchRes.map((anime, index) => (
           <Card
             key={`${anime.mal_id}-${index}`}
+            id={anime.mal_id}
             Title={anime.title}
             Image={anime.images.jpg.image_url}
             Rating={anime.score}

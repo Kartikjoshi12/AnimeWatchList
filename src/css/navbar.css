@@ -3,9 +3,12 @@
   background-color: black;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  padding: 10px;
+  justify-content: space-between; /* space logo & links */
+  padding: 10px 16px;
   font-family: monospace;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 /* Logo */
@@ -15,16 +18,36 @@
   border-radius: 8px;
 }
 
+.logo-img-fav {
+  height: 30px;
+  border-radius: 100%;
+  transition: box-shadow 0.3s ease;
+}
+
+.logo-img-fav:hover {
+  box-shadow: 0 0 15px #afa6af,
+              0 0 30px #afa6af,
+              0 0 50px #afa6af;
+}
+
 /* Nav links */
 .nav-link {
   color: #ffe4e6; /* light pinkish-white */
   text-decoration: none;
-  margin: 0 8px;
+  margin: 0 12px;
   transition: color 0.3s;
+  font-size: 0.95rem;
 }
 
 .nav-link:hover {
   color: #fca5a5; /* lighter red */
+}
+
+/* Nav links wrapper */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 /* Search section */
@@ -32,16 +55,25 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  position: relative;
 }
 
 .search-input {
   border: 1px solid #ccc;
-  padding: 5px 8px;
-  border-radius: 4px;
+  padding: 6px 10px;
+  border-radius: 6px;
   color: black;
-  opacity: 0.7;
+  opacity: 0.85;
+  font-size: 0.9rem;
+  width: 160px;
+  transition: width 0.3s ease;
 }
 
+.search-input:focus {
+  outline: none;
+  width: 200px;
+  opacity: 1;
+}
 
 .search-icon {
   color: white;
@@ -53,15 +85,43 @@
   filter: drop-shadow(0 0 6px white);
 }
 
+/* 📱 Mobile responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+  }
 
-.logo-img-fav{
-    height: 30px;
-    border-radius: 100%;
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+    gap: 16px;
+  }
+
+  .search-container {
+    margin-left: auto;
+  }
+
+  .search-input {
+    width: 120px;
+  }
 }
-.logo-img-fav:hover{
-  box-shadow: 0 0 15px #afa6af,   /* inner soft glow */
-              0 0 30px #afa6af,   /* medium outer glow */
-              0 0 50px #afa6af;   /* large outer glow */
 
-  transition: box-shadow 0.3s ease;
+@media (max-width: 480px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .search-input {
+    width: 100px;
+    font-size: 0.8rem;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+  }
 }

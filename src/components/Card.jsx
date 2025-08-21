@@ -1,8 +1,8 @@
 import "../css/card.css";
-
-function Card({ Title, Image, Rating, Genre }) {
+import { Link } from "react-router-dom";
+function Card({ id, Title, Image, Rating, Genre }) {
   return (
-    <div className="card">
+    <Link to={`/anime/${id}`} className="card">
       <img src={Image} alt={Title} />
       <div className="card-content">
         <div className="card-title">{Title}</div>
@@ -11,7 +11,7 @@ function Card({ Title, Image, Rating, Genre }) {
           <span>{Rating}</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

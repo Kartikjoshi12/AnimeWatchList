@@ -1,38 +1,112 @@
-.searchbar{
-justify-items: center;
-margin-top: 20px;
+/* Search Bar */
+.searchbar {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  width: 100%;
 }
 
+.searchbar input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: box-shadow 0.2s ease;
+}
 
+.searchbar input:focus {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  border-color: #666;
+}
+
+/* Anime results grid */
 .content-search {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* responsive grid */
-  gap: 15px; /* spacing between cards */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* responsive cards */
+  gap: 20px;
   padding: 20px;
 }
+
 /* Each card */
 .content-search > div {
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 15px;
+  background-color: #1c1f26;  /* dark like your Card component */
+  color: white;
+  border-radius: 12px;
+  padding: 16px;
   text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Hover effect */
 .content-search > div:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
 }
 
-/* Buttons (yours already good, just add spacing reset) */
+/* Image */
+.content-search img {
+  width: 140px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Title */
+.content-search h3 {
+  font-size: 1rem;
+  margin: 8px 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 180px;
+}
+
+/* Buttons */
 .btn {
-  border: 1px solid #333; 
-  background-color: white; 
-  border-radius: 5px;  
-  margin: 5px;
-  min-width: 60px;
-  padding: 5px 10px;
+  border: 1px solid #facc15;
+  background-color: #facc15;
+  color: black;
+  border-radius: 6px;
+  margin: 6px 4px;
+  min-width: 70px;
+  padding: 6px 12px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
+.btn:hover {
+  background-color: #ffe066;
+  transform: scale(1.05);
+}
+
+/* 📱 Mobile responsiveness */
+@media (max-width: 600px) {
+  .content-search {
+    grid-template-columns: 1fr 1fr; /* two cards per row */
+  }
+
+  .content-search h3 {
+    font-size: 0.85rem;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    min-width: 60px;
+    padding: 5px 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  .content-search {
+    grid-template-columns: 1fr; /* single column for very small screens */
+  }
+}

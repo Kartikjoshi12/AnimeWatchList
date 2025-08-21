@@ -1,0 +1,178 @@
+.main-box {
+  background: #b4b7ba; /* light background */
+  color: #2c3e50;
+  font-family: monospace;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+  width: 100%;
+  background: #a09d9d;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  gap: 20px;
+}
+
+/* LEFT SIDE */
+.left-box {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background: #f0f0f5;
+}
+
+.left-box-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  max-height: 500px; /* keeps images from getting too tall */
+}
+
+.trailer-btn {
+  background-color: #717d84;
+  border: none;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border-radius: 25px;
+  width: 160px;
+  padding: 10px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.trailer-btn:hover {
+  background-color: #5e686e;
+}
+
+/* RIGHT SIDE */
+.right-box {
+  flex: 1;
+  padding: 20px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.anime-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.mini-detail {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+
+.mini {
+  background-color: #ecf0f1;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #34495e;
+  flex-shrink: 0;
+}
+
+.detail {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-top: 10px;
+  text-align: justify;
+}
+
+/* =================================
+   RESPONSIVE DESIGN
+   ================================= */
+
+/* Large tablets / small desktops */
+@media (max-width: 992px) {
+  .box {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .left-box {
+    width: 100%;
+    padding: 10px;
+    align-items: center;
+  }
+
+  .left-box-img {
+    max-height: 400px;
+  }
+
+  .right-box {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .anime-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .mini-detail {
+    justify-content: center;
+  }
+
+  .detail {
+    text-align: left;
+  }
+}
+
+/* Small tablets & big phones */
+@media (max-width: 768px) {
+  .anime-title {
+    font-size: 1.4rem;
+  }
+
+  .mini {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+  }
+
+  .trailer-btn {
+    width: 80%;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 576px) {
+  .anime-title {
+    font-size: 1.2rem;
+  }
+
+  .mini-detail {
+    gap: 6px;
+  }
+
+  .mini {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+
+  .trailer-btn {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .detail {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}

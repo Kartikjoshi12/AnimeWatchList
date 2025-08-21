@@ -7,8 +7,8 @@ import Admin from "./pages/Admin";
 import Home from "./pages/Home";
 import Watched from "./pages/Watched";
 import Navbar from "./components/Navbar";
-import SearchPg from "./components/SearchPg";
-
+import SearchPg from "./pages/SearchPg";
+import Detail from "./pages/Detail";
 function App() {
   return (
     <>
@@ -20,6 +20,7 @@ function App() {
             <Route path="/Watched" element={<Watched />} />{" "}
             <Route path="/Admin" element={<Admin />} />
             <Route path ="/search/:query" element={<SearchPg/>}/>
+            <Route path ="/anime/:id" element={<Detail/>}/>
           </Routes>
            </div>
       </div>

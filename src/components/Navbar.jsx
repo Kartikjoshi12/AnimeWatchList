@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
-import SearchPg from "./SearchPg";
 
 import "../css/search.css";
 import "../css/navbar.css"
