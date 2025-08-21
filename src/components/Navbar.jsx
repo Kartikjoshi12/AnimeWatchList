@@ -4,7 +4,7 @@ import { FiSearch } from "react-icons/fi";
 
 import "../css/search.css";
 import "../css/navbar.css"
-import logo from "../assets/favicon (5).ico";
+import logo from "../assets/favicon (4).ico";
 
 function Navbar() {
   const [query, setQuery] = useState("");
